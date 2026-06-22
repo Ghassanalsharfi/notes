@@ -21,27 +21,38 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(bottom: 24,top: 24,left: 16),
       decoration: BoxDecoration(
-        color: Colors.amberAccent,
+        color: Color(0xffFFCC80),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           ListTile(
-            title: Text('Flutter Note App'
-            ,style: TextStyle(
-              color: Colors.black,
-            ),),
-            subtitle: Text('Bulid yor Notes ' ,style: TextStyle(
-              color: Colors.black,
-            ),),
-            trailing: IconButton(onPressed: () {}, icon: Icon(Icons.delete,color: Colors.black,)),
+            title: const Text(
+              'Flutter Note App',
+              style: TextStyle(color: Colors.black,fontSize: 26),
+            ),
+            subtitle:   Text(
+              'Bulid yor Notes ',
+              style: TextStyle(
+                color: Colors.black.withValues(alpha: 0.4)
+                ,fontSize: 20),
+            ),
+            trailing: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.delete, color: Colors.black),
+            ),
           ),
 
-          Text('May 21 , 2026' ,style: TextStyle(
-              color: Colors.black,
-            ),)
+            Padding(
+              padding: const EdgeInsets.only
+              (right: 24.0),
+              child: Text('May 21 , 2026', style: TextStyle(
+                  color: Colors.black.withValues(alpha: 0.4)
+                )),
+            ),
         ],
       ),
     );
