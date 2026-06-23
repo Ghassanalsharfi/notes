@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:notes/constants.dart';
 
-// ignore: must_be_immutable
-class CustomTextFiled extends StatelessWidget {
-  // ignore: use_key_in_widget_constructors
-  CustomTextFiled({this.hintText, this.obscureText = false, this.onChanged});
+ class CustomTextFiled extends StatelessWidget {
+   CustomTextFiled({this.hintText, this.obscureText = false, this.onChanged, this.maxLines = 1});
   String? hintText;
+  int? maxLines;
   bool? obscureText;
   Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: maxLines,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
         border: buildBorder(),

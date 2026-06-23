@@ -16,6 +16,8 @@ class AddNoteBottomShet extends StatelessWidget {
           SizedBox(height: 32,),
       
           CustomTextFiled(hintText: 'Titel',),
+          SizedBox(height: 16,),
+          CustomTextFiled(hintText: 'Content', maxLines: 5,),
         ],
       ),
     );
