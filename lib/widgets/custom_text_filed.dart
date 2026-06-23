@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:notes/constants.dart';
 
+// ignore: must_be_immutable
 class CustomTextFiled extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   CustomTextFiled({this.hintText, this.obscureText = false, this.onChanged});
   String? hintText;
   bool? obscureText;
