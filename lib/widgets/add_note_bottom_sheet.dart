@@ -9,22 +9,59 @@ class AddNoteBottomShet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    return const Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 16.0),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            
-            SizedBox(height: 32,),
+        child: AddNoteFoem(),
+      ),
+    );
+  }
+}
+
+class AddNoteFoem extends StatefulWidget {
+  const AddNoteFoem({
+    super.key,
+  });
+
+  @override
+  State<AddNoteFoem> createState() => _AddNoteFoemState();
+}
+
+class _AddNoteFoemState extends State<AddNoteFoem> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? titel, subTitle;
+  @override
+
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+          
+          SizedBox(height: 32,),
+      
+          CustomTextFiled(hintText: 'Titel',onSaved:(value){
+            titel = value;
+
+          } ,),
+          SizedBox(height: 16,),
+          CustomTextFiled(hintText: 'Content', maxLines: 5, onSaved: (value) {
+            subTitle = value;
+          }),
+          SizedBox(height: 50,),
+          CustomButton(Titel: 'Add', onTab: (){
+             if(formKey.currentState!.validate()){
+              formKey.currentState!.save();
         
-            CustomTextFiled(hintText: 'Titel',),
-            SizedBox(height: 16,),
-            CustomTextFiled(hintText: 'Content', maxLines: 5,),
-            SizedBox(height: 50,),
-            CustomButton(Titel: 'Add', onTab: (){},),
-            SizedBox(height: 32,),
-          ],
-        ),
+          }
+          else{
+            autovalidateMode = AutovalidateMode.always;
+          }
+          }),
+          SizedBox(height: 32,),
+        ],
       ),
     );
   }

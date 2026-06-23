@@ -1,16 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:notes/constants.dart';
 
- class CustomTextFiled extends StatelessWidget {
-   CustomTextFiled({this.hintText, this.obscureText = false, this.onChanged, this.maxLines = 1});
-final  String? hintText;
+class CustomTextFiled extends StatelessWidget {
+  CustomTextFiled({
+    this.hintText,
+    this.obscureText = false,
+    this.onChanged,
+    this.onSaved,
+    this.maxLines = 1,
+  });
+  final String? hintText;
   final int? maxLines;
   final bool? obscureText;
   final Function(String)? onChanged;
-
+  void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSaved,
+      validator: (value) {
+        if (value == null || value.trim().isEmpty) {
+          return 'This field is required';
+        }
+        return null;
+       },
       maxLines: maxLines,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
@@ -18,9 +31,7 @@ final  String? hintText;
         focusedBorder: buildBorder(kPrimaryColor),
         enabledBorder: buildBorder(),
         hintText: hintText,
-        hintStyle: TextStyle(
-          color: kPrimaryColor,
-        ),
+        hintStyle: TextStyle(color: kPrimaryColor),
       ),
     );
   }
