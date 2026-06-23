@@ -3,10 +3,10 @@ import 'package:notes/constants.dart';
 
  class CustomTextFiled extends StatelessWidget {
    CustomTextFiled({this.hintText, this.obscureText = false, this.onChanged, this.maxLines = 1});
-  String? hintText;
-  int? maxLines;
-  bool? obscureText;
-  Function(String)? onChanged;
+final  String? hintText;
+  final int? maxLines;
+  final bool? obscureText;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
