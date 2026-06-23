@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/constants.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
@@ -12,13 +13,14 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTab,
       child: Container(
+        width:MediaQuery.of(context).size.width ,
+        height: 55,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: kPrimaryColor,
           borderRadius: BorderRadius.circular(8),
         ),
-        width: double.infinity,
-        height: 60,
-        child: Center(child: Text(Titel)),
+       
+        child: Center(child: Text(Titel,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),)),
       ),
     );
   }
