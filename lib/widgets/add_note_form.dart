@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:notes/model/note_model.dart';
 import 'package:notes/widgets/custom_button.dart';
 import 'package:notes/widgets/custom_text_filed.dart';
 
@@ -39,6 +40,7 @@ class _AddNoteFormState extends State<AddNoteForm > {
           CustomButton(Titel: 'Add', onTab: (){
              if(formKey.currentState!.validate()){
               formKey.currentState!.save();
+              var noteModel = NoteModel(title: titel!, subTitle: subTitle!, Date: DateTime.now().toString(), color: Colors.blue.toARGB32());
         
           }
           else{
