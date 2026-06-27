@@ -4,4 +4,4 @@ const kPrimaryColor = Color(0xff62FCD7);
 const kLogo = 'assets/images/scholar.png';
 const kMessagesCollection = 'messages';
 const kMessages = 'message';
-const kNotes = 'notes_box';
+const kNotesBox = 'notes_box';
