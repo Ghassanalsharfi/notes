@@ -3,11 +3,12 @@ import 'package:notes/constants.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-   // ignore: non_constant_identifier_names, use_key_in_widget_constructors
-   CustomButton({ this.onTab, required this.Titel});
+
+    CustomButton({ this.onTab, required this.Titel,    this.isLoading=false});
   // ignore: non_constant_identifier_names
   final String Titel;
   VoidCallback ? onTab;
+  final bool  isLoading ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,7 +21,9 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
        
-        child: Center(child: Text(Titel,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),)),
+        child: Center(child:isLoading ? CircularProgressIndicator(
+          color: Colors.black,
+        ) : Text(Titel,style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20),)),
       ),
     );
   }
