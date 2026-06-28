@@ -9,27 +9,27 @@ debugPrint('onChange -- ${bloc.runtimeType}, $change');
 
   @override
   void onClose(BlocBase<dynamic> bloc) {
-    // TODO: implement onClose
+   debugPrint('onClose -- ${bloc.runtimeType}');
   }
 
   @override
   void onCreate(BlocBase<dynamic> bloc) {
-    // TODO: implement onCreate
+debugPrint('onCreate -- ${bloc.runtimeType}');
   }
 
   @override
   void onDone(Bloc<dynamic, dynamic> bloc, Object? event, [Object? error, StackTrace? stackTrace]) {
-    // TODO: implement onDone
+    debugPrint('onDone -- ${bloc.runtimeType}');
   }
 
   @override
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
-    // TODO: implement onError
+    debugPrint('onError -- ${bloc.runtimeType}, $error, $stackTrace');
   }
 
   @override
   void onEvent(Bloc<dynamic, dynamic> bloc, Object? event) {
-    // TODO: implement onEvent
+    debugPrint('onEvent -- ${bloc.runtimeType}, $event');
   }
 
   @override
