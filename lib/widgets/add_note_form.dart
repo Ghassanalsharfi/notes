@@ -4,6 +4,7 @@ import 'package:notes/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes/model/note_model.dart';
 import 'package:notes/widgets/custom_button.dart';
 import 'package:notes/widgets/custom_text_filed.dart';
+import 'package:intl/intl.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -43,7 +44,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
               return CustomButton(
-                isLoading: state is AddNoteLoading? true: false,
+                isLoading: state is AddNoteLoading ? true : false,
                 Titel: 'Add',
                 onTab: () {
                   if (formKey.currentState!.validate()) {
@@ -51,10 +52,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                       title: titel!,
                       subTitle: subTitle!,
-                      Date: DateTime.now().toString().matchAsPrefix(r'(\d{4}-\d{2}-\d{2})')![0].toString(),
+                      Date: DateFormat('yyyy-MM-dd').format(DateTime.now()).toString(),
                       color: Colors.blue.toARGB32(),
                     );
-                    context.read<AddNoteCubit>().addNote( noteModel);
+                    context.read<AddNoteCubit>().addNote(noteModel);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                   }
