@@ -51,7 +51,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                       title: titel!,
                       subTitle: subTitle!,
-                      Date: DateTime.now().toString(),
+                      Date: DateTime.now().toString().matchAsPrefix(r'(\d{4}-\d{2}-\d{2})')![0].toString(),
                       color: Colors.blue.toARGB32(),
                     );
                     context.read<AddNoteCubit>().addNote( noteModel);
