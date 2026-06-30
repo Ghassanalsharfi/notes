@@ -48,14 +48,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
             builder: (context, state) {
               return CustomButton(
                 isLoading: state is AddNoteLoading ? true : false,
-                Titel: 'Add',
+                titel: 'Add',
                 onTab: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var noteModel = NoteModel(
                       title: titel!,
                       subTitle: subTitle!,
-                      Date: DateFormat(
+                      date: DateFormat(
                         'yyyy-MM-dd',
                       ).format(DateTime.now()).toString(),
                       color: Colors.blue.toARGB32(),

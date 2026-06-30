@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/constants.dart';
-import 'package:notes/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes/model/note_model.dart';
 import 'package:notes/widgets/color_list_view.dart';
 
@@ -14,6 +12,7 @@ class EditColorListView extends StatefulWidget {
 }
 
 class _EditColorListViewState extends State<EditColorListView> {
+  // ignore: non_constant_identifier_names
   late int CuurentIndex;
 
   @override
@@ -47,6 +46,5 @@ class _EditColorListViewState extends State<EditColorListView> {
         },
       ),
     );
-    ;
   }
 }

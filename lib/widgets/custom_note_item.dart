@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/note_cubit/note_cubit.dart';
 import 'package:notes/model/note_model.dart';
-import 'package:notes/views/edit_note_view%20%20.dart';
+import 'package:notes/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.note});
@@ -52,7 +52,7 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(right: 24.0),
               child: Text(
-                note.Date,
+                note.date,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black.withValues(alpha: 0.4),

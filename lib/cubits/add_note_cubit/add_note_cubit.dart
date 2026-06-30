@@ -11,7 +11,7 @@ class AddNoteCubit extends Cubit<AddNoteState> {
   AddNoteCubit() : super(AddNoteInitial());
   Color color = Color(0xff457b9d);
 
-  addNote(NoteModel note) async {
+  dynamic addNote(NoteModel note) async {
     note.color = color.toARGB32();
     emit(AddNoteLoading());
 
