@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes/model/note_model.dart';
+import 'package:notes/widgets/color_list_view.dart';
 import 'package:notes/widgets/custom_button.dart';
 import 'package:notes/widgets/custom_text_filed.dart';
 import 'package:intl/intl.dart';
@@ -40,6 +41,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subTitle = value;
             },
           ),
+          SizedBox(height: 32),
           ColorListView(),
           SizedBox(height: 50),
           BlocBuilder<AddNoteCubit, AddNoteState>(
@@ -68,72 +70,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           SizedBox(height: 32),
         ],
-      ),
-    );
-  }
-}
-
-class ColorItem extends StatelessWidget {
-  const ColorItem({super.key, required this.isActive, required this.color});
-  final bool isActive;
-  final Color color;
-  @override
-  Widget build(BuildContext context) {
-    return isActive
-        ? CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 30,
-            child: CircleAvatar(backgroundColor: color, radius: 28),
-          )
-        : CircleAvatar(backgroundColor: color, radius: 30);
-  }
-}
-
-class ColorListView extends StatefulWidget {
-  const ColorListView({super.key});
-
-  @override
-  State<ColorListView> createState() => _ColorListViewState();
-}
-
-class _ColorListViewState extends State<ColorListView> {
-  int CuurentIndex = 0;
-  List<Color> colors = [
-    Color(0xff606c38),
-    Color(0xff283618),
-    Color(0xfffefae0),
-    Color(0xffdda15e),
-    Color(0xffbc6c25),
-    Color(0xff6f1d1b),
-    Color(0xfff1faee),
-    Color(0xffa8dadc),
-    Color(0xff457b9d),
-    Color(0xffc9ada7),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30 * 2,
-      child: ListView.builder(
-        itemCount: 10,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5),
-            child: GestureDetector(
-              onTap: () {
-                CuurentIndex = index;
-                BlocProvider.of<AddNoteCubit>(context).color = colors[index];
-                setState(() {});
-              },
-              child: ColorItem(
-                isActive: CuurentIndex == index,
-                color: colors[index],
-              ),
-            ),
-          );
-        },
       ),
     );
   }
